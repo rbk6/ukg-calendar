@@ -5,9 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "env": "varlock load",
-    "start": "varlock run -- npx tsx src/index.ts",
-    "dev": "varlock run -- npx tsx --watch src/index.ts"
+    "env": "varlock load --path .env.local",
+    "start": "varlock run --path .env.local -- npx tsx src/index.ts",
+    "start:ci": "varlock run -- npx tsx src/index.ts",
+    "dev": "varlock run --path .env.local -- npx tsx --watch src/index.ts"
   },
   "keywords": [],
   "author": "",

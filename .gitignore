@@ -1,6 +1,8 @@
 node_modules/
 dist/
 .env
+.env.local
+.env.ci
 auth.json
 google-credentials.json
-env.d.ts
+src/env.d.ts
