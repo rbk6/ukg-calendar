@@ -29,6 +29,7 @@ jobs:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
         run: |
           printf '%s\n' "$ENV_CI" > .env
+          echo 'HEADLESS=true' >> .env  # override schema default; no display available in CI
           printf '%s\n' "$GOOGLE_CREDENTIALS_JSON" > google-credentials.json
 
       - name: Run sync

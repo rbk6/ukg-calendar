@@ -14,6 +14,6 @@ export const config = {
         timeZone: ENV.TIMEZONE ?? 'America/Los_Angeles',
     },
     browser: {
-        headless: ENV.HEADLESS ?? (ENV.APP_ENV === 'ci'),
+        headless: ENV.HEADLESS,
     },
 } as const;
