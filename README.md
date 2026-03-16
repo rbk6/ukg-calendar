@@ -113,6 +113,29 @@ npm run dev
 
 ---
 
+## Automated Sync (GitHub Actions)
+
+The included workflow (`.github/workflows/sync.yml`) runs the sync automatically on a schedule and can also be triggered manually from the Actions tab.
+
+### Schedule
+
+Runs at **8:00 PM UTC (12:00 PM PST)** every Thursday, Friday, and Saturday. Adjust the cron expression in the workflow file if your schedule differs.
+
+### Required secrets
+
+Add these in your repo under **Settings → Secrets and variables → Actions**:
+
+| Secret | Value |
+|---|---|
+| `ENV_CI` | Full contents of `.env.ci` with all values filled in |
+| `GOOGLE_CREDENTIALS_JSON` | Full contents of your `google-credentials.json` service account key file |
+
+### Filling out `ENV_CI`
+
+Use `.env.example` as your starting point. Fill in all values, set `APP_ENV=ci` and `HEADLESS=true`, then paste the entire contents as the `ENV_CI` secret.
+
+---
+
 ## How it works
 
 1. **Scrape** — Playwright logs into UKG and intercepts the schedule API response
